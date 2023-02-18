@@ -11,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Form onNewColor={enteredColor}/>
+      <Form colorArray={enteredColor}/>
       <Display color={currentColor}/>
     </div>
   );

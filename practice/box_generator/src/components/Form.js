@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 const Form = (props) => {
+    const {colorArray, setColorArray} = props;
     const [color, setColor] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onNewColor(color);
+        setColorArray([...colorArray, color]);
     }
     
     return(
