@@ -5,14 +5,20 @@ import Form from './components/Form'
 import Display from './components/Display'
 
 function App() {
-  const [currentColor, setCurrentColor] = useState("");
-  const enteredColor = (newColor) => {
-    setCurrentColor(newColor)
+  const [colorArray, setColorArray] = useState([])
+
+  const currentColor= (newColor) => {
+    setColorArray([...colorArray, newColor])
   }
+
   return (
     <div className="App">
-      <Form colorArray={enteredColor}/>
-      <Display color={currentColor}/>
+      <Form currentColor={currentColor}/>
+      <div>
+        {colorArray.map((color, index) => (
+        <Display key={index} color={color} />
+      ))}
+    </div>
     </div>
   );
 }
