@@ -2,14 +2,14 @@ import React from 'react'
 
 const SubContents = () => {
   const styles = {
-    height: '50px',
-    width: '50px',
+    height: '250px',
+    width: '200px',
     margin: '10px',
     backgroundColor: '#ffd966',
   };
 
   return (
-    <div style={styles}>
+    <div  style={styles}>
     </div>
   );
 }
