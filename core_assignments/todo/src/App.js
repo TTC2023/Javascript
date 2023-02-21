@@ -7,9 +7,10 @@ function App() {
   const [currentActivityList, setCurrentActivityList] = useState([]);
 
   const deleteItem = (index) => {
-    const newList = [...currentActivityList];
-    newList.splice(index, 1);
-    setCurrentActivityList(newList);
+    const filterList = currentActivityList.filter((activity,i)=> {
+      return i !== index
+    })
+    setCurrentActivityList(filterList)
   }
 
   const addActivity = (newActivity) => {
@@ -18,8 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <Form onNewActivity={addActivity} deleteItem={deleteItem}/>
-      <Activity activities={currentActivityList}/>
+      <Form onNewActivity={addActivity}/>
+      <Activity activities={currentActivityList} deleteItem={deleteItem}/>
     </div>
   );
 }

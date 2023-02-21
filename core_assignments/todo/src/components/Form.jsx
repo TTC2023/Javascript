@@ -6,7 +6,6 @@ const Form = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.onNewActivity(activity)
-        console.log(props.activityList)
     }
 
   return (

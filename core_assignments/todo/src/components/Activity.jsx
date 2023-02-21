@@ -12,7 +12,7 @@ const Activity = (props) => {
         <ul>
         {
             props.activities.map( (activity, index) => 
-                <ul key={ index }>{ activity } <input type="checkbox"/><button onClick={() => handleDelete(index)}>Delete</button></ul>
+                <ul key={ index }>{ activity } <input type="checkbox"/><button onClick={()=> handleDelete(index)}>Delete</button></ul>
             )
         }
         </ul>
