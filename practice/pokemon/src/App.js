@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 import './App.css';
 import React, {useState, useEffect} from 'react';
 
@@ -6,17 +6,8 @@ function App() {
   const[pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
-          .then(response => {
-            // not the actual JSON response body but the entire HTTP response
-            return response.json();
-        }).then(response => {
-            // we now run another promise to parse the HTTP response into usable JSON
-            setPokemon(response.results)
-            console.log(response);
-        }).catch(err=>{
-            console.log(err);
-        });
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=807")
+          .then(response => {setPokemon(response.data.results)});
   }, []);  
 
   return (
