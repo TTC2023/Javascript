@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <label>Type</label>
         <input type="text" value={type} onChange={(e) => setType(e.target.value)} />
         <label>Id</label>
-        <input type="number" value={id} onChange={(e) => setId(e.target.value)} />
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
         <button>Enter</button>
       </form>
       <p>{display}</p>
