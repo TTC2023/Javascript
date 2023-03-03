@@ -19,7 +19,7 @@ const createUser = () => ({
         _id: faker.database.mongodbObjectId()
     })
     app.get("/api/users/new", (req, res) => {
-        res.json(createUser)
+        res.json(createUser())
     })
 
 const createCompany = () => ({
@@ -34,14 +34,14 @@ const createCompany = () => ({
         }
     })
     app.get("/api/companies/new", (req, res) => {
-        res.json(createCompany)
+        res.json(createCompany())
     })
-const createUserCompany = {
-        createCompany,
-        createUser
-    }
+
     app.get("/api/user/company", (req, res) => {
-        res.json(createUserCompany)
+        const newUser = createUser();
+        const newCompany = createCompany();
+        const userCompany = {newUser, newCompany}
+        res.json(userCompany)
     })
 
 app.listen( port, () => console.log(`Listening on port: ${port}`) );
