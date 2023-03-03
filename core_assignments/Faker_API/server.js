@@ -10,20 +10,20 @@ const port = 8000;
 // });
 const {faker} = require('@faker-js/faker')
 
-const createUser = {
+const createUser = () => ({
         password: faker.internet.password(),
         email: faker.internet.email(),
         phone: faker.phone.number(),
         lastName: faker.name.firstName(),
         firstName: faker.name.lastName(),
-        _id: faker.address.zipCode()
-    }
+        _id: faker.database.mongodbObjectId()
+    })
     app.get("/api/users/new", (req, res) => {
         res.json(createUser)
     })
 
-const createCompany = {
-        _id: faker.internet.ip(),
+const createCompany = () => ({
+        _id: faker.database.mongodbObjectId(),
         name: faker.company.name(),
         address: {
             street: faker.address.streetAddress(),
@@ -32,7 +32,7 @@ const createCompany = {
             zipCode: faker.address.zipCode(),
             country: faker.address.country()
         }
-    }
+    })
     app.get("/api/companies/new", (req, res) => {
         res.json(createCompany)
     })
