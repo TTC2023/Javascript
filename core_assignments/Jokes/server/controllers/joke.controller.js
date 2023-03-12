@@ -22,17 +22,19 @@ module.exports.createJoke = (req, res) => {
 }
 
 module.exports.findJokeById = (req, res) => {
-    console.log(req.params._id)
     Joke.findById({_id: req.params._id })
         .then(joke => res.json({joke}))
         .catch(err => res.json({message: 'something went wrong', error: err}))
 }
 
 module.exports.updateJokeById = (req, res) => {
-    Joke.findOneAndUpdate({ _id: req.params._id }, req.body, {
-        new: true,
-        runValidators: true,
-      })
-        .then((updatedJoke) => res.json(updatedJoke))
-        .catch((err) => console.log(err));
-    };
+    Joke.findOneAndUpdate({_id: req.params._id }, req.body, {new:true})
+        .then(updateJoke => res.json({joke: updateJoke}))
+        .catch(err => res.json({message: 'something went wrong', error: err}))
+}
+
+module.exports.deleteJoke = (req, res) => {
+    Joke.remove({_id: req.params._id })
+        .them(deletedJoke => res.json({deletedJoke}))
+        .catch(err => res.json({message: 'something went wrong', error: err}))
+}
