@@ -12,4 +12,10 @@ module.exports.createProduct = (req, res) => {
         .catch(err => res.json(err));
 }
 
+module.exports.getOneProduct = (req, res) => {
+    Product.findById(req.params.id)
+        .then(oneProduct => res.json(oneProduct))
+        .catch(err => res.json(err))
+}
+
 
