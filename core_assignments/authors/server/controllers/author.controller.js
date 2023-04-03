@@ -9,7 +9,7 @@ module.exports.getAllAuthors = (req, res) => {
 module.exports.createAuthor = (req, res) => {
     Author.create(req.body)
         .then(newAuthor => res.json(newAuthor))
-        .catch(err => res.json(err))
+        .catch(err => res.json(err));
 }
 
 module.exports.deleteAuthor = (req, res) => {
@@ -25,7 +25,7 @@ module.exports.getOneAuthor = (req, res) => {
 }
 
 module.exports.updateAuthor = (req, res) => {
-    Author.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    Author.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
         .then(updateAuthor => res.json(updateAuthor))
         .catch(err => res.json(err))
 }

@@ -28,7 +28,7 @@ const AuthorEdit = () => {
     }
 
   return (
-    <form onSubmit={onSubmitHandler} className="form-control mx-auto">
+    <form onSubmit={onSubmitHandler} className="col-md-6 mx-auto">
             <label htmlFor="name">Name</label>
             <input type="text" value={name} className="form-control" onChange={(e)=>setName(e.target.value)} />
             <button type="submit" className="btn btn-primary m-3">Submit</button>

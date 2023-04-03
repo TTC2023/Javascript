@@ -6,8 +6,7 @@ app.use(cors());
 app.use(express.json());                           /* This is new and allows JSON Objects to be posted */
 app.use(express.urlencoded({ extended: true }));   /* This is new and allows JSON Objects with strings and arrays*/
 require('./config/mongoose.config');    /* This is new */
-require('./routes/product.route')(app);
+require('./routes/store.route')(app);
 app.listen(8000, () => {
-    console.log("Listening at Port 7000")
+    console.log("Listening at Port 8000")
 })
-
