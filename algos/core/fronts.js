@@ -35,14 +35,25 @@ class SLL {
             return null;
         }
     }
+    display(){
+        let runner = this.head
+        let values = ""
+        while (runner !== null){
+            if(runner.next !== null){
+                values += runner.data + ", "
+            } else{
+                values += runner.data
+            }
+            runner = runner.next
+        }
+        console.log(values)
+        return values
+    }
 }
 
 let SLL1 = new SLL(); 
-SLL1.addFront(18);
-SLL1.addFront(5)
-SLL1.addFront(73)
-SLL1.removeFront()
-SLL1.removeFront()
-SLL1.showFront()
-SLL1.removeFront()
-SLL1.showFront()
+SLL1.addFront(76);
+SLL1.addFront(2)
+SLL1.display()
+SLL1.addFront(11.41)
+SLL1.display()
