@@ -28,20 +28,45 @@
 #     return -1
 # print(strStr("hello", "ll"))
 
-def strStr(haystack, needle):
-    firstIndex = None
-    matches = ""
-    for i in range(len(haystack)):
-        for j in range(len(needle)):
-            if firstIndex == None:
-                firstIndex = i
-            if haystack[i] == needle[j]:
-                matches += haystack[i]
-            if matches == needle:
-                return firstIndex
-    return -1
+# def strStr(haystack, needle):
+#     firstIndex = None
+#     matches = ""
+#     for i in range(len(haystack)):
+#         for j in range(len(needle)):
+#             if firstIndex == None:
+#                 firstIndex = i
+#             if haystack[i] == needle[j]:
+#                 matches += haystack[i]
+#             if matches == needle:
+#                 return firstIndex
+#     return -1
 
-print(strStr("hello", "ll"))
+# print(strStr("hello", "ll"))
+
+# def removeElement(nums, val):
+#     count = 0
+    
+#     for i in range(len(nums)):
+#         if nums[i] == val:
+#             count += 1
+#             nums[i] = False
+#     return f"{count}, nums = {nums}"
+# print(removeElement([3,2,2,3], 3))
 
 
+def maxArea(height):
+    left = 0
+    right = len(height)-1
+    area = 0
+    while left < right:
+        if height[left] > height[right]:    
+            if area < abs(height[right] * (left - right)):
+                area = abs(height[right] * (left - right))
+            right -= 1
+        else:
+            if area < abs(height[left] * (right - left)):
+                area = abs(height[left] * (right - left))
+            left += 1
+    return area
 
+print(maxArea([1,8,6,2,5,4,8,3,7]))
