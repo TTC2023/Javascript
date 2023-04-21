@@ -71,14 +71,47 @@
 
 # print(maxArea([1,8,6,2,5,4,8,3,7]))
 
-def fib(n):
-    count = 1
-    sequence = [0,1]
-    for i in range(n):
-        equation = sequence[i] + sequence[count]
-        sequence.append(equation)
-        count +=1
-    return sequence[n-1] + sequence[n-2]
+# def fib(n):
+#     count = 1
+#     sequence = [0,1]
+#     for i in range(n):
+#         equation = sequence[i] + sequence[count]
+#         sequence.append(equation)
+#         count +=1
+#     return sequence[n-1] + sequence[n-2]
+
+# print(fib(5))
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        current = dummy
+        while list1 and list2:
+            if list1 < list2:
+                current.next = list1
+                list1 = list1.next 
+            else:
+                current.val = list2
+                list2 = list2.next
+            current = current.next
+        while list1 or list2:
+            if list1:
+                current.next = list1
+                list1 = list1.next
+            if list2:
+                current.next = list2
+                list2 = list2.next
+            current = current.next
+        return dummy.next
 
 
-print(fib(5))
+list1 = ListNode(1)
+list1.next = ListNode(2)
+list1.next.next = ListNode(3)
+list2 = ListNode(4)
+list2.next = ListNode(5)
+list2.next.next = ListNode(6)
