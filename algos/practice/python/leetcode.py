@@ -71,6 +71,14 @@
 
 # print(maxArea([1,8,6,2,5,4,8,3,7]))
 
-def climbStairs(n):
+def fib(n):
+    count = 1
+    sequence = [0,1]
+    for i in range(n):
+        equation = sequence[i] + sequence[count]
+        sequence.append(equation)
+        count +=1
+    return sequence[n-1] + sequence[n-2]
 
-print(climbStairs(2))
+
+print(fib(5))
