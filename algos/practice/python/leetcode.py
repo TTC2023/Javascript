@@ -54,19 +54,23 @@
 # print(removeElement([3,2,2,3], 3))
 
 
-def maxArea(height):
-    left = 0
-    right = len(height)-1
-    area = 0
-    while left < right:
-        if height[left] > height[right]:    
-            if area < abs(height[right] * (left - right)):
-                area = abs(height[right] * (left - right))
-            right -= 1
-        else:
-            if area < abs(height[left] * (right - left)):
-                area = abs(height[left] * (right - left))
-            left += 1
-    return area
+# def maxArea(height):
+#     left = 0
+#     right = len(height)-1
+#     area = 0
+#     while left < right:
+#         if height[left] > height[right]:    
+#             if area < abs(height[right] * (left - right)):
+#                 area = abs(height[right] * (left - right))
+#             right -= 1
+#         else:
+#             if area < abs(height[left] * (right - left)):
+#                 area = abs(height[left] * (right - left))
+#             left += 1
+#     return area
 
-print(maxArea([1,8,6,2,5,4,8,3,7]))
+# print(maxArea([1,8,6,2,5,4,8,3,7]))
+
+def climbStairs(n):
+
+print(climbStairs(2))
