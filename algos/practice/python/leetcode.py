@@ -82,36 +82,113 @@
 
 # print(fib(5))
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        current = dummy
-        while list1 and list2:
-            if list1 < list2:
-                current.next = list1
-                list1 = list1.next 
-            else:
-                current.val = list2
-                list2 = list2.next
-            current = current.next
-        while list1 or list2:
-            if list1:
-                current.next = list1
-                list1 = list1.next
-            if list2:
-                current.next = list2
-                list2 = list2.next
-            current = current.next
-        return dummy.next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution:
+#     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+#         dummy = ListNode()
+#         current = dummy
+#         while list1 and list2:
+#             if list1 < list2:
+#                 current.next = list1
+#                 list1 = list1.next 
+#             else:
+#                 current.val = list2
+#                 list2 = list2.next
+#             current = current.next
+#         while list1 or list2:
+#             if list1:
+#                 current.next = list1
+#                 list1 = list1.next
+#             if list2:
+#                 current.next = list2
+#                 list2 = list2.next
+#             current = current.next
+#         return dummy.next
+
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution:
+#     def deleteDuplicates(self, head):
+#         current = head
+#         while current and current.next:
+#             if current.val == current.next.val:
+#                 current = current.next.next
+#             else:
+#                 current = current.next
+#         return head
 
 
-list1 = ListNode(1)
-list1.next = ListNode(2)
-list1.next.next = ListNode(3)
-list2 = ListNode(4)
-list2.next = ListNode(5)
-list2.next.next = ListNode(6)
+
+# list1 = ListNode(1)
+# list1.next = ListNode(2)
+# list1.next.next = ListNode(3)
+# S1 = Solution().deleteDuplicates(list1)
+
+# def isPalindrome(x):
+#     newStr = str(x)
+#     rev = newStr[::-1]
+#     if newStr == rev:
+#         return True
+#     else:
+#         return False
+
+
+# print(isPalindrome(121))
+
+# def leftRigthDifference(nums):
+#     if len(nums) <= 1:
+#         return 0
+#     previous = 0
+#     ans = []
+#     leftSum = []
+#     rightSum = []
+#     for i in range(len(nums)-1):
+#         if i == 0:
+#             leftSum.append(0)
+#             leftSum.append(nums[0])
+#         else:
+#             newSum = leftSum[i] + nums[i]
+#             leftSum.append(newSum)
+#     rightSum.append(0)
+#     for i in range(len(nums)-1,0,-1):
+#         newSum = nums[i] + previous
+#         previous = newSum
+#         rightSum.append(newSum)
+#     rev = rightSum.reverse()
+#     print(rev)
+#     for i in range(len(nums)):
+#         res = abs(rightSum[i]-leftSum[i])
+#         ans.append(res)
+#     return ans
+
+
+# print(leftRigthDifference([1]))
+
+# def leftRigthDifference(nums):
+#         ans = []
+#         leftSum = []
+#         rightSum = []
+#         for i in range(len(nums)):
+#             leftSum.append(sum(nums[:i]))
+#             rightSum.append(sum(nums[i+1:]))
+#             ans.append(abs(sum(nums[:i]) - sum(nums[i+1:])))
+#         return ans
+# print(leftRigthDifference([1,2,3,4,5]))
+
+def plusOne(digits):
+    num = ""
+    arr = []
+    for i in digits:
+        num += str(i)
+    res = int(num) + 1
+    num = str(res)
+    for char in num:
+        arr.append(int(char))
+    return arr
+
+print(plusOne([1,2,3]))
