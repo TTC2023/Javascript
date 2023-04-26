@@ -180,15 +180,16 @@
 #         return ans
 # print(leftRigthDifference([1,2,3,4,5]))
 
-def plusOne(digits):
-    num = ""
-    arr = []
-    for i in digits:
-        num += str(i)
-    res = int(num) + 1
-    num = str(res)
-    for char in num:
-        arr.append(int(char))
-    return arr
+# def plusOne(digits):
+#     num = ""
+#     arr = []
+#     for i in digits:
+#         num += str(i)
+#     res = int(num) + 1
+#     num = str(res)
+#     for char in num:
+#         arr.append(int(char))
+#     return arr
 
-print(plusOne([1,2,3]))
+# print(plusOne([1,2,3]))
+
