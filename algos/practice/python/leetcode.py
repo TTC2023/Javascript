@@ -193,20 +193,18 @@
 
 # print(plusOne([1,2,3]))
 
+# ****** sliding windows *******
 def findMaxAverage(nums, k):
-    start = 0
-    end = k
-    maxAvg = None
-    sumTotal = 0
-    while end <= len(nums):
-        splice = nums[start:end]
-        avg = sum(splice)/k
-        if maxAvg == None:
-            maxAvg = avg
-        else:
-            maxAvg = max(maxAvg, avg)
-        start+=1
-        end+=1
-    return maxAvg
+    subArray = sum(nums[0:k])
+    maxAvg = subArray
+
+    for i in range(1,len(nums)-k):
+        subArray = subArray + nums[i + k] - nums[i]
+        maxAvg = max(subArray, maxAvg)
+    return maxAvg/k
+    
 
 print(findMaxAverage([1,12,-5,-6,50,3],4))
+
+
+
