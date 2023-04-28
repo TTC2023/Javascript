@@ -194,17 +194,52 @@
 # print(plusOne([1,2,3]))
 
 # ****** sliding windows *******
-def findMaxAverage(nums, k):
-    subArray = sum(nums[0:k])
-    maxAvg = subArray
+# def findMaxAverage(nums, k):
+#     subArray = sum(nums[0:k])
+#     maxAvg = subArray
 
-    for i in range(1,len(nums)-k):
-        subArray = subArray + nums[i + k] - nums[i]
-        maxAvg = max(subArray, maxAvg)
-    return maxAvg/k
+#     for i in range(1,len(nums)-k):
+#         subArray = subArray + nums[i + k] - nums[i]
+#         maxAvg = max(subArray, maxAvg)
+#     return maxAvg/k
     
 
-print(findMaxAverage([1,12,-5,-6,50,3],4))
+# print(findMaxAverage([1,12,-5,-6,50,3],4))
+
+# def groupThePeople(groupSizes):
+#     newArray = []
+#     sizes = set(groupSizes)
+#     sizeCount = {}
+#     for i, value in enumerate(sizes):
+#         sizeCount[value] = groupSizes.count(value)
+#     for key in sizeCount:
+#         print(key)
+
+# print(groupThePeople([3,3,3,3,3,1,3]))
+
+def restoreString(s, indices):
+    newDict = {}
+    newStr = ""
+    for i in range(len(indices)):
+        newDict[indices[i]] = s[i]
+    for i in range(len(s)):
+        newStr += newDict[i]
+    return newStr
+
+
+
+
+print(restoreString("codeleet",[4,5,6,7,0,2,1,3]))
+
+
+
+
+
+
+
+
+
+
 
 
 
