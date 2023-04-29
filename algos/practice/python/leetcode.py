@@ -230,21 +230,30 @@ from collections import Counter
 
 # print(restoreString("codeleet",[4,5,6,7,0,2,1,3]))
 
-def findMatrix(nums):
-    counter = Counter(nums)
-    most_common = counter.most_common(1)
-    frequency = most_common[0][1]
-    doubles = set(nums)
-    ans = []
-    for i in range(frequency):
-        ans.append([])
-    for num in doubles:
-        count = nums.count(num)
-        for i in range(count):
-            ans[i].append(num)
+# def findMatrix(nums):
+#     counter = Counter(nums)
+#     most_common = counter.most_common(1)
+#     frequency = most_common[0][1]
+#     doubles = set(nums)
+#     ans = []
+#     for i in range(frequency):
+#         ans.append([])
+#     for num in doubles:
+#         count = nums.count(num)
+#         for i in range(count):
+#             ans[i].append(num)
+#     return ans
+
+# print(findMatrix([1,3,4,1,2,3,1]))
+
+def sumOfMultiples(n):
+    ans = 0
+    for i in range(1, n + 1):
+        if i%3 == 0 or i%5 == 0 or i%7 ==0:
+            ans += i
     return ans
 
-print(findMatrix([1,3,4,1,2,3,1]))
+print(sumOfMultiples(10))
 
 
 
