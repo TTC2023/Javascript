@@ -1,3 +1,5 @@
+from collections import Counter
+
 # Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 # def strStr(haystack, needle):
@@ -217,19 +219,32 @@
 
 # print(groupThePeople([3,3,3,3,3,1,3]))
 
-def restoreString(s, indices):
-    newDict = {}
-    newStr = ""
-    for i in range(len(indices)):
-        newDict[indices[i]] = s[i]
-    for i in range(len(s)):
-        newStr += newDict[i]
-    return newStr
+# def restoreString(s, indices):
+#     newDict = {}
+#     newStr = ""
+#     for i in range(len(indices)):
+#         newDict[indices[i]] = s[i]
+#     for i in range(len(s)):
+#         newStr += newDict[i]
+#     return newStr
 
+# print(restoreString("codeleet",[4,5,6,7,0,2,1,3]))
 
+def findMatrix(nums):
+    counter = Counter(nums)
+    most_common = counter.most_common(1)
+    frequency = most_common[0][1]
+    doubles = set(nums)
+    ans = []
+    for i in range(frequency):
+        ans.append([])
+    for num in doubles:
+        count = nums.count(num)
+        for i in range(count):
+            ans[i].append(num)
+    return ans
 
-
-print(restoreString("codeleet",[4,5,6,7,0,2,1,3]))
+print(findMatrix([1,3,4,1,2,3,1]))
 
 
 
