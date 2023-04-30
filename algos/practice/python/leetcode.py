@@ -283,16 +283,48 @@ from collections import Counter
 
 # print(findArray([5,2,0,3,1]))
 
-def decode(encoded, first):
-    ans = [first]
-    for i in range(len(encoded)):
-        num = encoded[i]^ans[i]
-        ans.append(num)
+# def decode(encoded, first):
+#     ans = [first]
+#     for i in range(len(encoded)):
+#         num = encoded[i]^ans[i]
+#         ans.append(num)
+#     return ans
+
+# print(decode([1,2,3],1))
+
+# def groupThePeople(groupSizes):
+#     ans = []
+#     # dictionary = {}
+#     groupSet = set(groupSizes)
+#     previous = 0
+#     # for num in groupSet:
+#     #     dictionary[num] = groupSizes.count(num)
+#     #     arrCount += groupSizes.count(num)
+#     # print(dictionary)
+#     for num in groupSet:
+#         subGroup =[]
+#         for j in range(len(groupSizes)):
+#             if groupSizes[j] == num and len(subGroup) < num:
+#                 subGroup.append(j)
+#             if groupSizes[j] == num and len(subGroup) == num:
+#                 ans.append(subGroup)
+#                 subGroup = []
+#     return ans
+
+# print(groupThePeople([3,3,3,3,3,1,3]))
+
+def maxWidthOfVerticalArea(points):
+    newArr = []
+    ans = 0
+    for point in points:
+        newArr.append(point[0])
+    newArr.sort()
+    for i in range(len(newArr)-1,0,-1):
+        if newArr[i] - newArr[i-1] > ans:
+            ans = newArr[i] - newArr[i-1]
     return ans
 
-print(decode([1,2,3],1))
-
-
+print(maxWidthOfVerticalArea([[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]))
 
 
 
