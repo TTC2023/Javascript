@@ -272,14 +272,26 @@ from collections import Counter
 
 # print(decompressRLElist([1,2,3,4]))
 
-def findArray(pref):
-    ans = [pref[0]]
-    for i in range(1,len(pref)):
-        newNum = pref[i-1] ^ pref[i]
-        ans.append(newNum)
+##### XOR Algos #####
+# 
+#  def findArray(pref):
+#     ans = [pref[0]]
+#     for i in range(1,len(pref)):
+#         newNum = pref[i-1] ^ pref[i]
+#         ans.append(newNum)
+#     return ans
+
+# print(findArray([5,2,0,3,1]))
+
+def decode(encoded, first):
+    ans = [first]
+    for i in range(len(encoded)):
+        num = encoded[i]^ans[i]
+        ans.append(num)
     return ans
 
-print(findArray([5,2,0,3,1]))
+print(decode([1,2,3],1))
+
 
 
 
