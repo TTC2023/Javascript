@@ -255,22 +255,31 @@ from collections import Counter
 
 # print(sumOfMultiples(10))
 
-def decompressRLElist(nums):
-    ans = []
-    state = False
-    pair = 0
-    for i in range(len(nums)):
-        if not state:
-            pair += nums[i]
-            state = True
-        else:
-            for j in range(pair):
-                ans.append(nums[i])
-            state = False
-            pair = 0
+# def decompressRLElist(nums):
+#     ans = []
+#     state = False
+#     pair = 0
+#     for i in range(len(nums)):
+#         if not state:
+#             pair += nums[i]
+#             state = True
+#         else:
+#             for j in range(pair):
+#                 ans.append(nums[i])
+#             state = False
+#             pair = 0
+#     return ans
+
+# print(decompressRLElist([1,2,3,4]))
+
+def findArray(pref):
+    ans = [pref[0]]
+    for i in range(1,len(pref)):
+        newNum = pref[i-1] ^ pref[i]
+        ans.append(newNum)
     return ans
 
-print(decompressRLElist([1,2,3,4]))
+print(findArray([5,2,0,3,1]))
 
 
 
