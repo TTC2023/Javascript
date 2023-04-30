@@ -246,14 +246,31 @@ from collections import Counter
 
 # print(findMatrix([1,3,4,1,2,3,1]))
 
-def sumOfMultiples(n):
-    ans = 0
-    for i in range(1, n + 1):
-        if i%3 == 0 or i%5 == 0 or i%7 ==0:
-            ans += i
+# def sumOfMultiples(n):
+#     ans = 0
+#     for i in range(1, n + 1):
+#         if i%3 == 0 or i%5 == 0 or i%7 ==0:
+#             ans += i
+#     return ans
+
+# print(sumOfMultiples(10))
+
+def decompressRLElist(nums):
+    ans = []
+    state = False
+    pair = 0
+    for i in range(len(nums)):
+        if not state:
+            pair += nums[i]
+            state = True
+        else:
+            for j in range(pair):
+                ans.append(nums[i])
+            state = False
+            pair = 0
     return ans
 
-print(sumOfMultiples(10))
+print(decompressRLElist([1,2,3,4]))
 
 
 
