@@ -328,23 +328,24 @@ from collections import Counter
 
 def pivotArray(nums, pivot):
     # find pivot number index
-    pivotIdx = nums.index(pivot)
-    
+    ans= []
+    front = []
+    middle = []
+    back = []
     for i in range(len(nums)):
-        if nums[i] < pivot and pivotIdx < i:
-            nums.insert(pivotIdx-1, nums[i])
-            nums.pop(i+1)
-        if nums[i] > pivot and pivotIdx > i:
-            nums.insert(pivotIdx+1, nums[i])
-            nums.pop(i)
-        if nums[i] == pivot and i > pivotIdx:
-            nums.insert(pivotIdx, nums[i])
-            nums.pop(i+1)
-        if nums[i] == pivot and i < pivotIdx:
-            nums.insert(pivotIdx, nums[i])
-            nums.pop(i)
-    return nums
-
+        if nums[i] < pivot:
+            front.append(i)
+        if nums[i] > pivot:
+            back.append(i)
+        if nums[i] == pivot:
+            middle.append(i)
+    front.extend(middle)
+    front.extend(back)
+    print(front)
+    for index in front:
+        ans.append(nums[index])
+    return ans
+    
 print(pivotArray([-3,4,3,2], 2))
 
 
