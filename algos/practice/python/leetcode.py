@@ -313,18 +313,39 @@ from collections import Counter
 
 # print(groupThePeople([3,3,3,3,3,1,3]))
 
-def maxWidthOfVerticalArea(points):
-    newArr = []
-    ans = 0
-    for point in points:
-        newArr.append(point[0])
-    newArr.sort()
-    for i in range(len(newArr)-1,0,-1):
-        if newArr[i] - newArr[i-1] > ans:
-            ans = newArr[i] - newArr[i-1]
-    return ans
+# def maxWidthOfVerticalArea(points):
+#     newArr = []
+#     ans = 0
+#     for point in points:
+#         newArr.append(point[0])
+#     newArr.sort()
+#     for i in range(len(newArr)-1,0,-1):
+#         if newArr[i] - newArr[i-1] > ans:
+#             ans = newArr[i] - newArr[i-1]
+#     return ans
 
-print(maxWidthOfVerticalArea([[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]))
+# print(maxWidthOfVerticalArea([[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]))
+
+def pivotArray(nums, pivot):
+    # find pivot number index
+    pivotIdx = nums.index(pivot)
+    
+    for i in range(len(nums)):
+        if nums[i] < pivot and pivotIdx < i:
+            nums.insert(pivotIdx-1, nums[i])
+            nums.pop(i+1)
+        if nums[i] > pivot and pivotIdx > i:
+            nums.insert(pivotIdx+1, nums[i])
+            nums.pop(i)
+        if nums[i] == pivot and i > pivotIdx:
+            nums.insert(pivotIdx, nums[i])
+            nums.pop(i+1)
+        if nums[i] == pivot and i < pivotIdx:
+            nums.insert(pivotIdx, nums[i])
+            nums.pop(i)
+    return nums
+
+print(pivotArray([-3,4,3,2], 2))
 
 
 
