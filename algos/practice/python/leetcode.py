@@ -326,27 +326,60 @@ from collections import Counter
 
 # print(maxWidthOfVerticalArea([[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]))
 
-def pivotArray(nums, pivot):
-    # find pivot number index
-    ans= []
-    front = []
-    middle = []
-    back = []
-    for i in range(len(nums)):
-        if nums[i] < pivot:
-            front.append(i)
-        if nums[i] > pivot:
-            back.append(i)
-        if nums[i] == pivot:
-            middle.append(i)
-    front.extend(middle)
-    front.extend(back)
-    print(front)
-    for index in front:
-        ans.append(nums[index])
+# def pivotArray(nums, pivot):
+#     ans= []
+#     front = []
+#     middle = []
+#     back = []
+#     for i in range(len(nums)):
+#         if nums[i] < pivot:
+#             front.append(i)
+#         if nums[i] > pivot:
+#             back.append(i)
+#         if nums[i] == pivot:
+#             middle.append(i)
+#     front.extend(middle)
+#     front.extend(back)
+#     print(front)
+#     for index in front:
+#         ans.append(nums[index])
+#     return ans
+
+# print(pivotArray([-3,4,3,2], 2))
+
+# def countDigits(num):
+#     count = 0
+#     temp = num
+#     while temp > 0:
+#         remainder = temp % 10
+#         if num % remainder == 0:
+#             count +=1
+#         temp = temp // 10
+#     return count
+
+# print(countDigits(121))
+
+def sortSentence(s):
+    s = s.replace(" ", "")
+    ans = ""
+    word = ""
+    num = 0
+    orderDict = {}
+    for char in s:
+        if char.isdigit() == True:
+            orderDict[int(char)] = word
+            word = ""
+        else:
+            word += char
+    sorted(orderDict)
+    for i in range(1,len(orderDict)+1):
+        if i == len(orderDict):
+            ans += orderDict[i]
+        else:
+            ans += orderDict[i] + " "
     return ans
-    
-print(pivotArray([-3,4,3,2], 2))
+
+print(sortSentence("is2 sentence4 This1 a3"))
 
 
 
