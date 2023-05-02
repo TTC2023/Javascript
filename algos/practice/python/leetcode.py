@@ -359,27 +359,48 @@ from collections import Counter
 
 # print(countDigits(121))
 
-def sortSentence(s):
-    s = s.replace(" ", "")
-    ans = ""
-    word = ""
-    num = 0
-    orderDict = {}
-    for char in s:
-        if char.isdigit() == True:
-            orderDict[int(char)] = word
-            word = ""
-        else:
-            word += char
-    sorted(orderDict)
-    for i in range(1,len(orderDict)+1):
-        if i == len(orderDict):
-            ans += orderDict[i]
-        else:
-            ans += orderDict[i] + " "
-    return ans
+# def sortSentence(s):
+#     s = s.replace(" ", "")
+#     ans = ""
+#     word = ""
+#     num = 0
+#     orderDict = {}
+#     for char in s:
+#         if char.isdigit() == True:
+#             orderDict[int(char)] = word
+#             word = ""
+#         else:
+#             word += char
+#     sorted(orderDict)
+#     for i in range(1,len(orderDict)+1):
+#         if i == len(orderDict):
+#             ans += orderDict[i]
+#         else:
+#             ans += orderDict[i] + " "
+#     return ans
 
-print(sortSentence("is2 sentence4 This1 a3"))
+# print(sortSentence("is2 sentence4 This1 a3"))
+
+def garbageCollection(garbage, travel):
+    paper = 0
+    glass = 0
+    metal = 0
+    travelIndex = 0
+    for i in range(len(garbage)):
+        for j in range(len(garbage[i])):
+            if garbage[i][j] == "P":
+                paper += travel[travelIndex]
+                paper += 1
+            if garbage[i][j] == "G":
+                glass += travel[travelIndex]
+                glass += 1
+            if garbage[i][j] == "M":
+                metal += travel[travelIndex]
+                metal += 1
+    return paper+glass+metal
+
+
+print(garbageCollection(["G","P","GP","GG"],[2,4,3]))
 
 
 
