@@ -381,26 +381,16 @@ from collections import Counter
 
 # print(sortSentence("is2 sentence4 This1 a3"))
 
-def garbageCollection(garbage, travel):
-    paper = 0
-    glass = 0
-    metal = 0
-    travelIndex = 0
-    for i in range(len(garbage)):
-        for j in range(len(garbage[i])):
-            if garbage[i][j] == "P":
-                paper += travel[travelIndex]
-                paper += 1
-            if garbage[i][j] == "G":
-                glass += travel[travelIndex]
-                glass += 1
-            if garbage[i][j] == "M":
-                metal += travel[travelIndex]
-                metal += 1
-    return paper+glass+metal
+def arithmeticTriplets(nums, diff):
+    tripIndex = []
+    ans = len(tripIndex)
+    for i in range(len(nums)):
+        for j in range(1,len(nums)):
+            if abs(nums[i] - nums[j]) == diff:
+                tripIndex.append(i)
+    return ans
 
-
-print(garbageCollection(["G","P","GP","GG"],[2,4,3]))
+print(arithmeticTriplets([0,1,4,6,7,10],3))
 
 
 
