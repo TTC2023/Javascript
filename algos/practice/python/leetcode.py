@@ -381,16 +381,18 @@ from collections import Counter
 
 # print(sortSentence("is2 sentence4 This1 a3"))
 
-def arithmeticTriplets(nums, diff):
-    tripIndex = []
-    ans = len(tripIndex)
-    for i in range(len(nums)):
-        for j in range(1,len(nums)):
-            if abs(nums[i] - nums[j]) == diff:
-                tripIndex.append(i)
-    return ans
+def findCenter(edges):
+    edgesList = []
+    for i in range(len(edges)):
+        edgesList.append(edges[i][0])
+        edgesList.append(edges[i][1])
+    for i in range(len(edgesList)):
+        if edgesList.count(edgesList[i]) == len(edges):
+            return edgesList[i]
+    return None
+print(findCenter([[1,2],[2,3],[4,2]]))
 
-print(arithmeticTriplets([0,1,4,6,7,10],3))
+
 
 
 
