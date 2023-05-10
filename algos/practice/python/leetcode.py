@@ -381,16 +381,26 @@ from collections import Counter
 
 # print(sortSentence("is2 sentence4 This1 a3"))
 
-def findCenter(edges):
-    edgesList = []
-    for i in range(len(edges)):
-        edgesList.append(edges[i][0])
-        edgesList.append(edges[i][1])
-    for i in range(len(edgesList)):
-        if edgesList.count(edgesList[i]) == len(edges):
-            return edgesList[i]
-    return None
-print(findCenter([[1,2],[2,3],[4,2]]))
+# def findCenter(edges):
+#     edgesList = []
+#     for i in range(len(edges)):
+#         edgesList.append(edges[i][0])
+#         edgesList.append(edges[i][1])
+#     for i in range(len(edgesList)):
+#         if edgesList.count(edgesList[i]) == len(edges):
+#             return edgesList[i]
+#     return None
+# print(findCenter([[1,2],[2,3],[4,2]]))
+
+def arrayStringsAreEqual(word1, word2):
+    word1 = ''.join(word1)
+    word2 = ''.join(word2)
+    if word1 == word2:
+        return True
+    else:
+        return False
+
+print(arrayStringsAreEqual(["abc", "d", "defg"],["abcddefg"]))
 
 
 
