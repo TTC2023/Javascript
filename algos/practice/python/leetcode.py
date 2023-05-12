@@ -402,20 +402,33 @@ from collections import Counter
 
 # print(arrayStringsAreEqual(["abc", "d", "defg"],["abcddefg"]))
 
-def checkIfPangram(sentence):
-        if len(sentence) < 26:
-            return False
-        alpha = []
-        for i in range(len(sentence)):
-            if sentence[i] not in alpha:
-                alpha.append(sentence[i])
-        if len(alpha) == 26:
-            return True
-        else:
-            return False
+# def checkIfPangram(sentence):
+#         if len(sentence) < 26:
+#             return False
+#         alpha = []
+#         for i in range(len(sentence)):
+#             if sentence[i] not in alpha:
+#                 alpha.append(sentence[i])
+#         if len(alpha) == 26:
+#             return True
+#         else:
+#             return False
 
-print(checkIfPangram("abacasfkjaskjfsaldfj"))
+# print(checkIfPangram("abacasfkjaskjfsaldfj"))
 
+def sumOddLengthSubarrays(arr):
+    count = 0
+    length = 1
+    while len(arr) >= length:
+        for i in range(len(arr)):
+            if len(arr[i:i+length]) == length:
+                print(arr[i:i+length])
+                count += sum(arr[i:i+length])
+        length += 2
+    return count
+
+
+print(sumOddLengthSubarrays([1,4,2,5,3]))
 
 
 
