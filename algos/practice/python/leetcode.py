@@ -392,15 +392,29 @@ from collections import Counter
 #     return None
 # print(findCenter([[1,2],[2,3],[4,2]]))
 
-def arrayStringsAreEqual(word1, word2):
-    word1 = ''.join(word1)
-    word2 = ''.join(word2)
-    if word1 == word2:
-        return True
-    else:
-        return False
+# def arrayStringsAreEqual(word1, word2):
+#     word1 = ''.join(word1)
+#     word2 = ''.join(word2)
+#     if word1 == word2:
+#         return True
+#     else:
+#         return False
 
-print(arrayStringsAreEqual(["abc", "d", "defg"],["abcddefg"]))
+# print(arrayStringsAreEqual(["abc", "d", "defg"],["abcddefg"]))
+
+def checkIfPangram(sentence):
+        if len(sentence) < 26:
+            return False
+        alpha = []
+        for i in range(len(sentence)):
+            if sentence[i] not in alpha:
+                alpha.append(sentence[i])
+        if len(alpha) == 26:
+            return True
+        else:
+            return False
+
+print(checkIfPangram("abacasfkjaskjfsaldfj"))
 
 
 
