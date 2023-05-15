@@ -429,20 +429,33 @@ from collections import Counter
 
 # print(sumOddLengthSubarrays([1,4,2,5,3]))
 
-def truncateSentence(s,k):
-    newS = ""
-    wordCount = 0
-    for i in range(len(s)):
-        if s[i] != ' ':
-            newS += s[i]
-        else:
-            newS += s[i]
-            wordCount +=1
-            if wordCount == k:
-                break
-    return newS.strip()
+# def truncateSentence(s,k):
+#     newS = ""
+#     wordCount = 0
+#     for i in range(len(s)):
+#         if s[i] != ' ':
+#             newS += s[i]
+#         else:
+#             newS += s[i]
+#             wordCount +=1
+#             if wordCount == k:
+#                 break
+#     return newS.strip()
 
-print(truncateSentence("Hello how are you Contestant",4))
+# print(truncateSentence("Hello how are you Contestant",4))
+
+def numberOfMatches(n):
+    matches = 0
+    while n != 1:
+        if n%2 == 0:
+            n = n/2
+            matches += n
+        else:
+            n = ((n-1)/2) + 1
+            matches += n -1
+    return int(matches)
+
+print(numberOfMatches(7))
 
 
 
