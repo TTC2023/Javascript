@@ -416,20 +416,33 @@ from collections import Counter
 
 # print(checkIfPangram("abacasfkjaskjfsaldfj"))
 
-def sumOddLengthSubarrays(arr):
-    count = 0
-    length = 1
-    while len(arr) >= length:
-        for i in range(len(arr)):
-            if len(arr[i:i+length]) == length:
-                print(arr[i:i+length])
-                count += sum(arr[i:i+length])
-        length += 2
-    return count
+# def sumOddLengthSubarrays(arr):
+#     count = 0
+#     length = 1
+#     while len(arr) >= length:
+#         for i in range(len(arr)):
+#             if len(arr[i:i+length]) == length:
+#                 print(arr[i:i+length])
+#                 count += sum(arr[i:i+length])
+#         length += 2
+#     return count
 
+# print(sumOddLengthSubarrays([1,4,2,5,3]))
 
-print(sumOddLengthSubarrays([1,4,2,5,3]))
+def truncateSentence(s,k):
+    newS = ""
+    wordCount = 0
+    for i in range(len(s)):
+        if s[i] != ' ':
+            newS += s[i]
+        else:
+            newS += s[i]
+            wordCount +=1
+            if wordCount == k:
+                break
+    return newS.strip()
 
+print(truncateSentence("Hello how are you Contestant",4))
 
 
 
