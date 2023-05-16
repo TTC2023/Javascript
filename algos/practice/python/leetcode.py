@@ -444,18 +444,54 @@ from collections import Counter
 
 # print(truncateSentence("Hello how are you Contestant",4))
 
-def numberOfMatches(n):
-    matches = 0
-    while n != 1:
-        if n%2 == 0:
-            n = n/2
-            matches += n
-        else:
-            n = ((n-1)/2) + 1
-            matches += n -1
-    return int(matches)
+# def numberOfMatches(n):
+#     matches = 0
+#     while n != 1:
+#         if n%2 == 0:
+#             n = n/2
+#             matches += n
+#         else:
+#             n = ((n-1)/2) + 1
+#             matches += n -1
+#     return int(matches)
 
-print(numberOfMatches(7))
+# print(numberOfMatches(7))
+
+def executeInstructions(n, startPos, s):
+    vertical = startPos[0]
+    horizontal = startPos[1]
+    count = 0
+    res = []
+    while len(s) > 0:
+        for i in range(len(s)):
+            if s[i] == "R":
+                horizontal += 1
+            if s[i] == "L":
+                horizontal -= 1
+            if s[i] == "U":
+                vertical -= 1
+            if s[i] == "D":
+                vertical += 1
+            if  horizontal > n-1 or 0 > horizontal:
+                res.append(count)
+                count=0
+                break
+            if  vertical > n-1 or 0 > vertical:
+                res.append(count)
+                count=0
+                break
+            else:
+                count += 1
+        s = s[1:]
+        vertical = startPos[0]
+        horizontal = startPos[1]
+        if count > 0:
+            res.append(count)
+        count = 0
+    return res
+
+print(executeInstructions(3, [0,1], "RRDDLU"))
+
 
 
 
