@@ -53,3 +53,15 @@ var filter = function(arr, fn) {
     }
     return res
 };
+
+var reduce = function(nums, fn, init) {
+    if(nums.length == 0){
+        return init
+    }
+    let accum = init
+    for(let i = 0; i < nums.length; i++){
+        let curr = nums[i]
+        accum = fn(accum, curr)
+    }
+    return accum
+};
