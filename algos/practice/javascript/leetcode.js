@@ -90,3 +90,28 @@ Array.prototype.last = function() {
         return this[this.length-1]
     }
 };
+
+var ArrayWrapper = function(nums) {
+    this.nums = nums
+};
+
+ArrayWrapper.prototype.valueOf = function() {
+    let total
+    if(this.nums.length === 0){
+        return 0
+    }
+    else{
+        for(let i = 0; i < this.nums.length; i++){
+            total = this.nums.reduce(function(a, c) {
+                return a + c;
+            }, 0);
+
+        }
+        return total
+    }
+}
+
+ArrayWrapper.prototype.toString = function() {
+    let res = JSON.stringify(this.nums)
+    return res
+}
