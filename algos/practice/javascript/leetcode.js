@@ -65,3 +65,20 @@ var reduce = function(nums, fn, init) {
     }
     return accum
 };
+
+var compose = function(functions) {
+    let res = 0
+	return function(x) {
+        res = functions.reduceRight(x)
+    }
+};
+
+var filter = function(arr, fn) {
+    let res = []
+    for(let i = 0; i < arr.length; i++){
+        if(fn(arr[i],i)){
+            res.push(arr[i])
+        }
+    }
+    return res
+};
