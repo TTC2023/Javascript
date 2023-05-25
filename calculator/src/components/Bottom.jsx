@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 
-const Bottom = ({setEquation}) => {
+const Bottom = ({setNumber}) => {
 
   const handleButtonClick = (value) => {
-    setEquation((prevEquation) => prevEquation * 10 + value);
+    setNumber((prevNumber) => prevNumber * 10 + value);
   };
+
+  const handleOperator = (value) => {
+    setOperator((prevEquation)=> + value)
+  }
 
   return (
     <div>
@@ -18,6 +22,10 @@ const Bottom = ({setEquation}) => {
       <button onClick={() => handleButtonClick(7)}>7</button>
       <button onClick={() => handleButtonClick(8)}>8</button>
       <button onClick={() => handleButtonClick(9)}>9</button>
+      <button onClick={() => handleOperator('*')}>*</button>
+      <button onClick={() => handleOperator('/')}>/</button>
+      <button onClick={() => handleOperator('+')}>+</button>
+      <button onClick={() => handleOperator('-')}>-</button>
     </div>
   );
 };

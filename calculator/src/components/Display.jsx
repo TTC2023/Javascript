@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-const Display = ({equation}) => {
+const Display = ({number}) => {
 
   return (
     <div style={{height: '50px', width: '300px', backgroundColor: 'black'}}>
-        <p style={{color: 'white'}}>{equation}</p>
+        <p style={{color: 'white'}}>{number}</p>
     </div>
   )
 }
