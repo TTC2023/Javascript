@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Bottom.css';
 
-const Bottom = ({ setEquation, setAnswer, equation, answer }) => {
+const Bottom = ({ setEquation, setAnswer, equation}) => {
 
   const [first, setFirst] = useState(true);
-  const [operator, setOperator] = useState(false);
+  const [operator, setOperator] = useState(true);
 
   const handleEquation = (value) => {
     if (first && value !== 0 && equation !== "") {
@@ -19,21 +19,26 @@ const Bottom = ({ setEquation, setAnswer, equation, answer }) => {
     }
     if (!first && value === 0 && !operator){
       setEquation((prevNumber) => prevNumber + value);
-    }
-    if (value === '-' || value === '+' || value === '/' || value === '*') {
-      setOperator(true);
+      setOperator(false)
     }
   };
+
+  const handleOperator = (value) => {
+    if(!operator){
+      setEquation((currentEquation) => currentEquation + value);
+      setOperator(true)
+    }
+  }
   
 
   const clear = () => {
     setEquation("");
     setFirst(true)
   };
-  //need to fix so that answer does not exceed 100000
+
   const calculate = () => {
     if(!operator){
-      if(answer>100000){
+      if(eval(equation)>100000){
         setAnswer('.....')
       } else{
         setAnswer(eval(equation));
@@ -44,7 +49,7 @@ const Bottom = ({ setEquation, setAnswer, equation, answer }) => {
   };
 
   return (
-    <div className='body'>
+    <div className='body d-flex justify-content-center'>
       <div className='row-1'>
         <button className='equation' onClick={() => handleEquation(0)}>0</button>
         <button className='equation' onClick={() => handleEquation(1)}>1</button>
@@ -60,14 +65,14 @@ const Bottom = ({ setEquation, setAnswer, equation, answer }) => {
       <div className='row-3'>
         <button className='equation' onClick={() => handleEquation(8)}>8</button>
         <button className='equation' onClick={() => handleEquation(9)}>9</button>
-        <button className='equation' onClick={() => handleEquation('*')}>*</button>
-        <button className='equation' onClick={() => handleEquation('/')}>/</button>
+        <button className='equation' onClick={() => handleOperator('*')}>*</button>
+        <button className='equation' onClick={() => handleOperator('/')}>/</button>
       </div>
       <div className='row-4'>
-        <button className='equation' onClick={() => handleEquation('+')}>+</button>
-        <button className='equation' onClick={() => handleEquation('-')}>-</button>
-        <button onClick={() => calculate()} className='action-button'>Enter</button>
-        <button onClick={() => clear()} className='action-button'>Clr</button>
+        <button className='equation' onClick={() => handleOperator('+')}>+</button>
+        <button className='equation' onClick={() => handleOperator('-')}>-</button>
+        <button onClick={() => calculate()} className='equation'>Enter</button>
+        <button onClick={() => clear()} className='equation'>Clr</button>
       </div>
     </div>
   );
