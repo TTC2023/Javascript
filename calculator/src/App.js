@@ -9,10 +9,10 @@ function App() {
   const [answer, setAnswer] = useState('')
 
   return (
-    <div className='d-flex flex-column align-items-center mx-auto' style={{height: '400px', backgroundColor: 'red', width: '350px', padding: '4px', margin: '15%'}}>
+    <div className='d-flex flex-column align-items-center mx-auto' style={{height: '400px', backgroundColor: '#8DBD9E', width: '350px', padding: '4px', margin: '15%', borderRadius: '15%'}}>
       <div className='d-flex flex-column align-items-center m-4' style={{ height: '100vh' }}>
         <Display equation={equation} answer={answer}/>
-        <Bottom setEquation={setEquation} setAnswer={setAnswer} equation={equation}/>
+        <Bottom setEquation={setEquation} setAnswer={setAnswer} equation={equation} answer={answer}/>
       </div>
     </div>
   );

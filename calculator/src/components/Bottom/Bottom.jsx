@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Bottom.css';
 
-const Bottom = ({ setEquation, setAnswer, equation }) => {
+const Bottom = ({ setEquation, setAnswer, equation, answer }) => {
 
   const [first, setFirst] = useState(true);
   const [operator, setOperator] = useState(false);
@@ -30,10 +30,14 @@ const Bottom = ({ setEquation, setAnswer, equation }) => {
     setEquation("");
     setFirst(true)
   };
-
+  //need to fix so that answer does not exceed 100000
   const calculate = () => {
     if(!operator){
-      setAnswer(eval(equation));
+      if(answer>100000){
+        setAnswer('.....')
+      } else{
+        setAnswer(eval(equation));
+      }
       setFirst(true)
       clear();
     }
