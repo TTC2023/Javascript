@@ -130,3 +130,23 @@ var canMakeArithmeticProgression = function(arr) {
     }
     return true
 };
+
+var equalPairs = function(grid) {
+    let col = []
+    let count = 0
+    for(let i = 0; i < grid.length; i++){
+        let newArr = []
+        for(let j = 0; j<grid[i].length; j++){
+            newArr.push(grid[j][i])
+        }
+        col.push(newArr)
+    }
+    for(let i = 0; i < grid.length; i++){
+        for(let j = 0; j < col.length; j++){
+            if(JSON.stringify(grid[i]) === JSON.stringify(col[j])){
+                count++
+            }
+        }
+    }
+    return count
+};
