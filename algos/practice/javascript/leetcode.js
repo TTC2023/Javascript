@@ -115,3 +115,18 @@ ArrayWrapper.prototype.toString = function() {
     let res = JSON.stringify(this.nums)
     return res
 }
+
+var canMakeArithmeticProgression = function(arr) {
+    arr.sort((a, b) => a - b)
+    console.log(arr)
+    let difference = arr[arr.length-1] - arr[arr.length-2] 
+    let current = arr[arr.length-2] 
+    for(let i = arr.length-3; i >= 0; i--){
+        if(current - arr[i] !== difference){
+            return false
+        } else{
+            current = arr[i]
+        }
+    }
+    return true
+};
