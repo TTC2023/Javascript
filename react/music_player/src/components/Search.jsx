@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './API';
-import { MUSIC_API_URL } from './API';
+import { MUSIC_API_KEY, MUSIC_API_URL } from './API';
 
 const Search = ({ setSearch, search }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -12,7 +12,7 @@ const Search = ({ setSearch, search }) => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`${MUSIC_API_URL}/search`, {
+      const response = await axios.get(`${MUSIC_API_URL}`, {
         params: {
           q: searchInput,
           type: 'multi',
@@ -20,6 +20,10 @@ const Search = ({ setSearch, search }) => {
           limit: '10',
           numberOfTopResults: '5'
         },
+        headers: {
+          'X-RapidAPI-Key': `${MUSIC_API_KEY}`,
+          'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+        }
       });
       console.log(response.data);
       setSearch(response.data);
@@ -40,6 +44,12 @@ const Search = ({ setSearch, search }) => {
           onChange={handleInputChange}
         />
         <button onClick={handleSearch}>Search</button>
+        <h3>Artists:</h3>
+        {search.artists && search.artists.items.map((artist, index) => (
+          <div key={index}>
+            <a href=''>{artist.data.profile.name}</a>
+          </div>
+        ))}
       </div>
     </div>
   );
