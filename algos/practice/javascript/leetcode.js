@@ -150,3 +150,13 @@ var equalPairs = function(grid) {
     }
     return count
 };
+
+var maximizeSum = function(nums, k) {
+    let most = Math.max(...nums)
+    let ans = 0
+    for(let i = 0; i < k; i++){
+        ans += most
+        most++
+    }
+    return ans
+};
