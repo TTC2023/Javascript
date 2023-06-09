@@ -160,3 +160,20 @@ var maximizeSum = function(nums, k) {
     }
     return ans
 };
+
+var maximum69Number = function(num) {
+    let arr = [num];
+    let str = num.toString().split(""); // Convert the string to an array of characters
+    console.log(str)
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === "9") {
+        str[i] = "6";
+      } else {
+        str[i] = "9";
+      }
+      arr.push(parseInt(str.join("")));
+      str = num.toString().split(""); // Convert the array back to a string and parse it as an integer
+    }
+    console.log(arr)
+    return Math.max(...arr);
+  };
