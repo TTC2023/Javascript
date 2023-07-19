@@ -492,6 +492,18 @@ def executeInstructions(n, startPos, s):
 
 print(executeInstructions(3, [0,1], "RRDDLU"))
 
+def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        ans = 0
+        for i in range(len(words)):
+            status = True
+            for j in range(len(words[i])):
+                if words[i][j] not in allowed:
+                    status = False
+                    break
+            if status:
+                ans += 1
+        return ans
+
 
 
 
