@@ -504,7 +504,28 @@ def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
                 ans += 1
         return ans
 
-
+def mergeAlternately(self, word1: str, word2: str) -> str:
+        newWord = ""
+        toggle = True
+        if len(word1) <= len(word2):
+            shorter = len(word1)
+            longer = word2
+            amount = len(word2) - len(word1)
+        else:
+            shorter = len(word2)
+            longer = word1
+            amount = len(word1) - len(word2)
+        for i in range(shorter):
+            if toggle:
+                newWord += word1[i]
+                newWord += word2[i]
+                toggle = False
+            else:
+                newWord += word2[i]
+                newWord += word1[i]
+                toggle = True
+        newWord += longer[:shorter]
+        return newWord
 
 
 
