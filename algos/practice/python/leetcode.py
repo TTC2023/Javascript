@@ -527,6 +527,24 @@ def mergeAlternately(self, word1: str, word2: str) -> str:
         newWord += longer[:shorter]
         return newWord
 
+def reverseVowels(self, s: str) -> str:
+        vowels = ""
+        ans = ""
+        count = 0
+        for i in range(len(s)):
+            if s[i].lower() in {'a', 'e', 'i', 'o', 'u'}:
+                vowels += s[i]
+        revVowelsList = list(vowels[::-1])
+        sList = list(s)
+        print(sList)
+        for i in range(len(sList)):
+            if s[i].lower() in {'a', 'e', 'i', 'o', 'u'}:
+                sList[i] = revVowelsList[count]
+                count += 1
+        for i in range(len(sList)):
+            ans += sList[i]
+        return ans
+
 
 
 
