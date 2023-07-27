@@ -545,6 +545,17 @@ def reverseVowels(self, s: str) -> str:
             ans += sList[i]
         return ans
 
+def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        zeroes = []
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                nums.remove(nums[i])
+                nums.append(0)
+        print(zeroes)
+
 
 
 
