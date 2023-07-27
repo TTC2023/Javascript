@@ -556,8 +556,24 @@ def moveZeroes(self, nums: List[int]) -> None:
                 nums.append(0)
         print(zeroes)
 
+def isSubsequence(self, s: str, t: str) -> bool:
+        target = 0
+        if s == "":
+            return True
+        for i in range(len(t)):
+            if s[target] == t[i]:
+                target += 1
+                if target == len(s):
+                    return True
+        return False
 
-
+def largestAltitude(self, gain: List[int]) -> int:
+        altitudes = [0]
+        curr = 0
+        for i in range(len(gain)):
+            curr += gain[i]
+            altitudes.append(curr)
+        return max(altitudes)
 
 
 
