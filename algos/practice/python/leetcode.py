@@ -575,6 +575,16 @@ def largestAltitude(self, gain: List[int]) -> int:
             altitudes.append(curr)
         return max(altitudes)
 
+def pivotIndex(self, nums: List[int]) -> int:
+        left = 0
+        for i in range(len(nums) - 1, -1, -1):
+            if sum(nums[0:left]) == sum(nums[left+1:len(nums)]):
+                return left
+            if left+1 > len(nums):
+                return -1
+            left +=1
+        return -1
+
 
 
 
