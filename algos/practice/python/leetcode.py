@@ -585,6 +585,26 @@ def pivotIndex(self, nums: List[int]) -> int:
             left +=1
         return -1
 
+def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        setNums1 = list(set(nums1))
+        setNums2 = list(set(nums2))
+        setNums1.sort()
+        setNums2.sort()
+        ans = []
+        left = 0
+        right = 0
+        while left < len(setNums1) and right < len(setNums2):
+            if setNums1[left] < setNums2[right]:
+                left+=1
+            elif setNums2[right] < setNums1[left]:
+                right +=1
+            else:
+                setNums1.remove(setNums1[left])
+                setNums2.remove(setNums2[right])
+        ans.append(setNums1)
+        ans.append(setNums2)
+        return ans
+
 
 
 
