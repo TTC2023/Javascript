@@ -605,6 +605,15 @@ def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
         ans.append(setNums2)
         return ans
 
+def uniqueOccurrences(self, arr: List[int]) -> bool:
+        setArr = list(set(arr))
+        previous = []
+        for i in range(len(setArr)):
+            if arr.count(setArr[i]) in previous:
+                return False
+            previous.append(arr.count(setArr[i]))
+        return True
+
 
 
 
