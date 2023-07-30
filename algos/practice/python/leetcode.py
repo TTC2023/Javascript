@@ -614,6 +614,24 @@ def uniqueOccurrences(self, arr: List[int]) -> bool:
             previous.append(arr.count(setArr[i]))
         return True
 
+def reverseWords(self, s: str) -> str:
+        s = s.strip()
+        ans = ""
+        word = ""
+        previous = ""
+        for i in range(len(s)-1,-1,-1):
+            if previous == " " and s[i] == " ":
+                continue
+            if s[i] != " ":
+                word += s[i]
+            else:
+                ans += word[::-1] + " "
+                word = ""
+            previous = s[i]
+        if len(word) > 0:
+            ans += word[::-1]
+            word = ""
+        return ans
 
 
 
